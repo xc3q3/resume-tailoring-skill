@@ -1,5 +1,7 @@
 # Claude Skills Marketplace Submission Guide
 
+> Legacy-Hinweis: Dieses Dokument beschreibt die fruehere Claude-Marketplace-Fassung. Fuer die lokale Codex-Runtime ist ausschliesslich `skills/resume-tailoring/` massgeblich; Claude- oder Marketplace-Zusagen hier sind Archivmaterial.
+
 ## ✅ Repository Setup Complete!
 
 **GitHub Repository:** https://github.com/varunr89/resume-tailoring-skill

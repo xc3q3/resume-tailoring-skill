@@ -1,0 +1,96 @@
+# Matching and Reframing
+
+## Ziel
+
+Vorhandene Erfahrungen transparent auf Jobanforderungen abbilden. Das Matching soll erklaeren, warum ein Bullet passt oder warum eine Luecke bleibt.
+
+## Scoring
+
+Alle Teilwerte auf einer 0-100-Skala bewerten. Nur belegte Informationen aus Resume-Bibliothek, Discovery, JD oder Nutzerkontext zaehlen; fehlende Evidenz ist `0`.
+
+Teilwert-Rubrik:
+- `100`: gleiche Anforderung, gleicher Kontext oder gleichwertige Wirkung.
+- `75`: starke Uebereinstimmung mit kleinem Domain-, Tool- oder Kontextwechsel.
+- `50`: teilweise Uebereinstimmung; relevante Faehigkeit ist erkennbar, aber nicht deckungsgleich.
+- `25`: schwache Andeutung; nur als Hinweis, nicht als tragender Resume-Bullet.
+- `0`: keine belastbare Evidenz.
+
+Gesamtscore:
+```text
+Overall = Direct * 0.4 + Transferable * 0.3 + Adjacent * 0.2 + Impact * 0.1
+```
+
+Kriterien:
+- **Direct Match (40%)**: gleiche Skills, Domain, Technologie, Outcomes oder Komplexitaet.
+- **Transferable (30%)**: gleiche Faehigkeit in anderem Kontext.
+- **Adjacent (20%)**: verwandte Tools, Methoden, Problemraeume oder Nebenverantwortung.
+- **Impact (10%)**: Wirkung passt zur Zielrolle, etwa Scale, Kosten, Umsatz, Qualitaet, Teamwirkung.
+
+Score-Entscheidungen im Mapping kurz begruenden. Bei Unsicherheit niedriger bewerten und Discovery oder Gap-Behandlung anbieten.
+
+Confidence-Bands:
+- `90-100`: DIRECT.
+- `75-89`: TRANSFERABLE.
+- `60-74`: ADJACENT.
+- `45-59`: WEAK.
+- `<45`: GAP.
+
+## Mapping-Ausgabe
+
+Pro Template-Slot:
+```markdown
+### Slot: {Requirement or bullet intent}
+
+**Recommendation:** {source bullet or discovery}
+**Confidence:** {score} ({band})
+**Source:** {resume file or discovery id}
+
+Why it fits:
+- Direct:
+- Transferable:
+- Adjacent:
+- Impact:
+
+Gaps:
+- {missing element if any}
+```
+
+## Reframing-Regeln
+
+Erlaubt:
+- Terminologie an Zielrolle angleichen.
+- Fokus verschieben, wenn dieselben Fakten betont werden.
+- technische Details ein- oder ausblenden.
+- Wirkung und Kontext klarer machen.
+
+Nicht erlaubt:
+- neue Tools, Domains, Metriken oder Senioritaet behaupten.
+- Verantwortung von Team auf Person verschieben, wenn nicht belegbar.
+- Arbeitgeber, Daten oder Titel irrefuehrend veraendern.
+- aus Lernen/Interesse produktive Berufserfahrung machen.
+
+Reframing immer dokumentieren:
+```markdown
+Original: "{source}"
+Reframed: "{new}"
+Reason: "{why this wording is truthful and useful}"
+```
+
+## Gap Handling
+
+Wenn Score unter 60 liegt:
+- Bestes Match nennen.
+- konkrete fehlende Elemente benennen.
+- Discovery anbieten, wenn passend.
+- Optionen geben:
+  - Slot weglassen.
+  - Bestes schwaches Match mit vorsichtiger Formulierung nutzen.
+  - Gap im Report oder Interview Prep adressieren.
+  - Nutzer nach belegbarer Erfahrung fragen.
+
+## Wiederholungen vermeiden
+
+Wenn ein Bullet mehrere Anforderungen abdeckt:
+- fuer den wichtigsten Slot verwenden,
+- bei weiteren Slots als sekundare Abdeckung im Report nennen,
+- nicht denselben Erfolg mehrfach im Resume wiederholen.

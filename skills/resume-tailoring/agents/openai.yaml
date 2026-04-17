@@ -1,0 +1,7 @@
+interface:
+  display_name: "Resume Tailoring"
+  short_description: "Truthful tailored resumes from Markdown"
+  default_prompt: "Use $resume-tailoring to tailor a Markdown resume and report for this job description using my local resume library."
+
+policy:
+  allow_implicit_invocation: true

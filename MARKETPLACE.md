@@ -1,5 +1,7 @@
 # Resume Tailoring Skill - Marketplace Submission
 
+> Legacy-Hinweis: Dieses Dokument beschreibt die fruehere Claude-Marketplace-Fassung. Fuer die lokale Codex-Runtime ist ausschliesslich `skills/resume-tailoring/` massgeblich; Claude- oder Marketplace-Zusagen hier sind Archivmaterial.
+
 ## Skill Information
 
 **Name:** Resume Tailoring Skill
