@@ -1,9 +1,9 @@
 ---
 name: resume-tailoring
-description: Verwenden, wenn Lebenslaeufe, separate Projektlisten und Qualitaetsreports aus der lokalen Bewerbungsunterlagen_2026-Struktur fuer konkrete Bewerbungen zugeschnitten werden sollen. Ausloesen, wenn der Nutzer eine Jobbeschreibung, Job-URL oder mehrere Zieljobs liefert und faktengetreues Lebenslauf-Tailoring aus stationen/, wissen/ und output/-Vorlagen, Batch-Verarbeitung, Erfahrungs-Discovery, evidenzbasiertes Matching, verpflichtendes 3-Ebenen-Review, Markdown-Lebenslauf/Projektliste/Report-Erzeugung oder optionalen DOCX/PDF-Export ohne Claude-spezifische Werkzeuge und ohne erfundene Erfahrung moechte.
+description: Verwenden, wenn Lebenslaeufe, separate Projektlisten und Qualitaetsreports aus der lokalen Bewerbungsunterlagen_2026-Struktur fuer konkrete Bewerbungen zugeschnitten werden sollen. Ausloesen, wenn der Nutzer eine Jobbeschreibung, Job-URL oder mehrere Zieljobs liefert und faktengetreues resume-tailoring aus stationen/, wissen/ und output/-Vorlagen, Batch-Verarbeitung, Erfahrungs-Discovery, evidenzbasiertes Matching, verpflichtendes 3-Ebenen-Review, Markdown-Lebenslauf/Projektliste/Report-Erzeugung oder optionalen DOCX/PDF-Export ohne Claude-spezifische Werkzeuge und ohne erfundene Erfahrung moechte.
 ---
 
-# Lebenslauf-Tailoring
+# resume-tailoring
 
 ## Zweck
 
@@ -62,7 +62,14 @@ Root-Erkennung:
 - Wenn der Nutzer einen Pfad nennt, diesen als Projektwurzel pruefen.
 - Sonst das aktuelle Arbeitsverzeichnis pruefen.
 - Eine gueltige Projektwurzel enthaelt mindestens `AGENTS.md`, `stationen/`, `wissen/` und `output/`.
+- Das repo-lokale `output/` dieses Skill-Repositories ist nur eine Referenz- und Pruefablage fuer Vorlagen; es ist kein Bewerbungsprojekt-Output und keine gueltige Projektwurzel ohne `stationen/` und `wissen/`.
 - Wenn keine gueltige Projektwurzel gefunden wird, nach dem Pfad fragen.
+
+Vorlagen-Kompatibilitaet:
+- In Bewerbungsprojekten bleibt `output/_vorlage_lebenslauf.md` die primaere Zielstruktur.
+- `output/_vorlage_whoz.md` bleibt nur fuer ausdrueckliche WHOZ-Wuensche vorgesehen.
+- Die repo-lokale Referenzvorlage `output/_vorlage_Lebenslauf_2026.md` und ihre schlanke Strukturhilfe `output/_vorlage_Lebenslauf_2026_mapping.md` verdraengen keine bestehenden Vorlagen.
+- Die 2026-Vorlage nur aktiv befuellen, wenn sie bewusst in die Bewerbungsprojektwurzel uebernommen wurde oder der Nutzer sie dort explizit auswaehlt.
 
 ## Codex-Werkzeugmodell
 
@@ -107,7 +114,8 @@ Root-Erkennung:
    - Details: `references/research.md`.
 
 4. **Dokumentstruktur entwerfen**
-   - `output/_vorlage_lebenslauf.md` als primaere Zielstruktur verwenden, wenn vorhanden.
+   - `output/_vorlage_lebenslauf.md` aus der Bewerbungsprojektwurzel als primaere Zielstruktur verwenden, wenn vorhanden.
+   - Die repo-lokale 2026-Vorlage nur als Referenz lesen; aktiv befuellen nur nach bewusster Uebernahme oder expliziter Auswahl in der Bewerbungsprojektwurzel.
    - Wenn die Vorlage fehlt, konservative Markdown-Struktur nutzen und den Fallback im Report nennen.
    - Abschnittsreihenfolge, Rollenreihenfolge, Bullet-Budget und eventuelle Titel-/Rollen-Reframings vorschlagen.
    - Separate Projektliste als Pflichtartefakt einplanen.
@@ -147,6 +155,7 @@ Root-Erkennung:
    - `output/{Name}_{Stelle}_{Jahr}_Report.md`
    - optional nach ausdruecklichem Nutzerwunsch und vorhandener Vorlage: WHOZ-Export nach `output/_vorlage_whoz.md`
    - optional nach Nutzerwunsch und lokaler Tool-Verfuegbarkeit: `output/{Name}_{Stelle}_{Jahr}.docx` und `output/{Name}_{Stelle}_{Jahr}.pdf`
+   - Echte Bewerbungsoutputs immer im `output/` der validierten Bewerbungsprojektwurzel erzeugen, nie im repo-lokalen Vorlagen-`output/` dieses Skills.
    - Report enthaelt Zielrolle, Erfolgsprofil, Zuordnung, Reframings, Quellen, verbleibende Gaps, Qualitaetsreport und Hinweise zur Interviewvorbereitung.
 
 10. **Strukturpflege nur nach Freigabe**

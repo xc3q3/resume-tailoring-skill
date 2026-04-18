@@ -1,4 +1,4 @@
-# Lebenslauf-Tailoring-Skill fuer Codex
+# resume-tailoring fuer Codex
 
 Lokaler Codex-Skill fuer faktengetreue, zielgerichtete Bewerbungsunterlagen in der Struktur `Bewerbungsunterlagen_2026`. Der Skill analysiert `stationen/` und `wissen/`, wertet Jobbeschreibungen aus, findet belegbare passende Erfahrungen, fuehrt bei Bedarf Erfahrungs-Discovery durch und erzeugt einen zugeschnittenen Markdown-Lebenslauf, eine separate Projektliste und einen Qualitaetsreport in `output/`.
 
@@ -42,6 +42,16 @@ ln -s "$(pwd)/skills/resume-tailoring" ~/.codex/skills/resume-tailoring
 
 Danach Codex neu starten, falls die Skill-Liste bereits geladen war.
 
+## Vorlagen-Werkbank
+
+Der repo-lokale Ordner `output/` in diesem Skill-Repository ist nur eine Referenz- und Pruefablage fuer bearbeitbare Lebenslaufvorlagen. Er ist nicht der Ausgabeordner fuer echte Bewerbungen und darf nicht als `Bewerbungsunterlagen_2026`-Projektwurzel interpretiert werden.
+
+Aktuell liegen dort:
+- `output/_vorlage_Lebenslauf_2026.md`
+- `output/_vorlage_Lebenslauf_2026_mapping.md`
+
+Die 2026-Vorlage dient zunaechst als Referenzmaterial. Sie wird erst aktiv befuellt, wenn sie bewusst in ein konkretes Bewerbungsprojekt uebernommen oder dort explizit ausgewaehlt wird. Die bisherigen Vorlagen bleiben kompatibel: `output/_vorlage_lebenslauf.md` ist weiterhin der Standard im Bewerbungsprojekt, `output/_vorlage_whoz.md` bleibt der WHOZ-Export.
+
 ## Erwartete Arbeitsstruktur
 
 Der Skill arbeitet standardmaessig mit einer Projektwurzel dieser Form:
@@ -80,6 +90,7 @@ Wichtige Regeln:
 - `wissen/karriere/_uebersicht.md` und `wissen/karriere/kompetenzen.md` sind aggregierte, pflegbare Wissensdateien.
 - `output/_vorlage_lebenslauf.md` ist die primaere Zielstruktur fuer neue Lebenslaeufe.
 - `output/_vorlage_whoz.md` wird nur bei ausdruecklichem WHOZ-Wunsch genutzt.
+- Das repo-lokale `output/` dieses Skill-Repositories ist nur Vorlagen-Werkbank; echte Bewerbungsoutputs entstehen im `output/` der jeweiligen Bewerbungsprojektwurzel.
 - `quellen/` enthaelt Rohmaterial und wird nie veraendert.
 
 ## Nutzung
@@ -179,7 +190,7 @@ skills/resume-tailoring/
 1. Intake: Jobbeschreibung, Firma/Rolle und Projektwurzel klaeren.
 2. Karrierebasis: `stationen/` und relevante Dateien aus `wissen/` lesen.
 3. Recherche: JD und optional Firmen-/Rolleninformationen auswerten.
-4. Vorlage: `output/_vorlage_lebenslauf.md` verwenden oder konservativen Fallback nutzen.
+4. Vorlage: `output/_vorlage_lebenslauf.md` aus der Bewerbungsprojektwurzel verwenden oder konservativen Fallback nutzen; die repo-lokale 2026-Vorlage nur nach bewusster Uebernahme oder expliziter Auswahl befuellen.
 5. Discovery: gezielt nach undokumentierter echter Erfahrung fragen.
 6. Matching: Kandidaten scoren, Gaps offenlegen, Reframings dokumentieren.
 7. Rohdokumente: Lebenslauf mit 2 bis 4 Projekt-Teasern, separate Projektliste und Report entwerfen.
@@ -216,7 +227,7 @@ Fuer die lokale Codex-Runtime ist `skills/resume-tailoring/` massgeblich. Histor
 ## Manuelle Pruefung
 
 ```bash
-rg "stationen|wissen|output/batches|_vorlage_lebenslauf|Projektliste|Qualitaetsreport|3-Ebenen" skills/resume-tailoring README.md
+rg "stationen|wissen|output/batches|_vorlage_lebenslauf|_vorlage_whoz|_vorlage_Lebenslauf_2026|Projektliste|Qualitaetsreport|3-Ebenen" skills/resume-tailoring README.md
 find skills/resume-tailoring/references -type f | sort
 ```
 

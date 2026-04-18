@@ -22,6 +22,7 @@ Erfasse:
 - Firma und Rolle, falls nicht eindeutig in der JD.
 - Projektwurzel; Standard ist das aktuelle Arbeitsverzeichnis, wenn es `AGENTS.md`, `stationen/`, `wissen/` und `output/` enthaelt.
 - Ausgabeordner; Standard `output/`.
+- Repo-lokales Skill-`output/` nur als Vorlagen-Werkbank behandeln, nicht als Bewerbungsprojekt-Ausgabe.
 
 Karrierebasis:
 - `stationen/*.md` lesen, aber `stationen/_vorlage.md` nur als Stationsvorlage behandeln.
@@ -29,7 +30,8 @@ Karrierebasis:
 - `wissen/glossar.md` fuer Abkuerzungen, Firmenkuerzel und Projektnamen nutzen.
 - `wissen/karriere/_uebersicht.md` fuer Timeline und `wissen/karriere/kompetenzen.md` fuer konsolidierte Kompetenzen lesen.
 - `wissen/schema.md` und `wissen/arbeitsstand.md` lesen, wenn Strukturregeln oder aktueller Bearbeitungsstand relevant sind.
-- `output/_vorlage_lebenslauf.md` als Zielstruktur lesen, falls vorhanden; `output/_vorlage_whoz.md` nur bei ausdruecklichem WHOZ-Wunsch.
+- `output/_vorlage_lebenslauf.md` aus der Bewerbungsprojektwurzel als Zielstruktur lesen, falls vorhanden; `output/_vorlage_whoz.md` nur bei ausdruecklichem WHOZ-Wunsch.
+- Die repo-lokale Referenzvorlage `output/_vorlage_Lebenslauf_2026.md` und ihre schlanke Strukturhilfe `output/_vorlage_Lebenslauf_2026_mapping.md` verdraengen diese Standards nicht. Sie nur aktiv befuellen, wenn sie in die Bewerbungsprojektwurzel uebernommen oder dort explizit ausgewaehlt wurden.
 - `quellen/` nicht veraendern. Nur bei expliziter Extraktions- oder Evidenzfrage lesen.
 - Rollen, Arbeitgeber, Titel, Daten, Bullet Points, Kompetenzen, Ausbildung und Kontaktblock extrahieren.
 - Quellen je Aussage als Pfad merken, damit der Report nachvollziehbar bleibt.
@@ -58,7 +60,8 @@ Hole Nutzerfeedback ein, wenn das Profil unsicher oder interpretationsbeduerftig
 ## Phase 2: Struktur und Vorlage
 
 Erzeuge eine Dokumentstruktur:
-- Primaer `output/_vorlage_lebenslauf.md` fuellen, wenn vorhanden.
+- Primaer `output/_vorlage_lebenslauf.md` aus der Bewerbungsprojektwurzel fuellen, wenn vorhanden.
+- Die 2026-Referenzvorlage nur nach bewusster Uebernahme oder expliziter Auswahl in der Bewerbungsprojektwurzel fuellen.
 - Wenn die Vorlage fehlt, konservative Markdown-Struktur verwenden und im Report nennen.
 - Berufliches Profil mit 2 bis 4 Saetzen.
 - Kernkompetenzen in 2 bis 4 Kategorien, passend zur JD.
@@ -134,7 +137,7 @@ Erzeuge:
 - optional nach Nutzerwunsch und lokaler Tool-Verfuegbarkeit `output/{Name}_{Stelle}_{Jahr}.docx`
 - optional nach Nutzerwunsch und lokaler Tool-Verfuegbarkeit `output/{Name}_{Stelle}_{Jahr}.pdf`
 
-Dateinamen aus normalisierten Segmenten bilden, Anzeigenamen im Dokument aber unveraendert lassen. Zielpfade nie ueberschreiben; bei Kollision `-2`, `-3` usw. anhaengen.
+Dateinamen aus normalisierten Segmenten bilden, Anzeigenamen im Dokument aber unveraendert lassen. Zielpfade nie ueberschreiben; bei Kollision `-2`, `-3` usw. anhaengen. Echte Bewerbungsoutputs immer in der validierten Bewerbungsprojektwurzel erzeugen, nie im repo-lokalen Vorlagen-`output/` des Skills.
 
 Lebenslauf-Struktur:
 ```markdown

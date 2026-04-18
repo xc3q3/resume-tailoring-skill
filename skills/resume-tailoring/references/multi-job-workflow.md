@@ -59,7 +59,9 @@ Pro Job erfassen:
 Karrierebasis einmal fuer den gesamten Batch aufbauen:
 - `stationen/*.md` als Stationenquellen.
 - `wissen/profil.md`, `wissen/glossar.md`, `wissen/karriere/_uebersicht.md` und `wissen/karriere/kompetenzen.md` als Wissensquellen.
-- `output/_vorlage_lebenslauf.md` als Zielstruktur, falls vorhanden.
+- `output/_vorlage_lebenslauf.md` aus der Bewerbungsprojektwurzel als Zielstruktur, falls vorhanden.
+- `output/_vorlage_whoz.md` bleibt nur fuer ausdrueckliche WHOZ-Wuensche relevant.
+- Repo-lokale Referenzvorlagen wie `output/_vorlage_Lebenslauf_2026.md` und `output/_vorlage_Lebenslauf_2026_mapping.md` nicht automatisch als Batch-Standard nutzen; sie nur befuellen, wenn sie in die Bewerbungsprojektwurzel uebernommen oder dort explizit ausgewaehlt wurden.
 - `quellen/` nicht aendern.
 
 `_batch_state.json` direkt nach Intake anlegen oder aktualisieren. Danach jede Phase vor einem Nutzer-Pruefpunkt und nach jedem fertig verarbeiteten Job speichern.
