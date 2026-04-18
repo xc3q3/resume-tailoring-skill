@@ -1,26 +1,28 @@
-# Resume Tailoring Skill fuer Codex
+# Lebenslauf-Tailoring-Skill fuer Codex
 
-Lokaler Codex-Skill fuer faktengetreue, zielgerichtete Bewerbungsunterlagen. Der Skill analysiert eine vorhandene Markdown-Resume-Bibliothek, wertet Jobbeschreibungen aus, findet belegbare passende Erfahrungen, fuehrt bei Bedarf Experience Discovery und erzeugt ein zugeschnittenes Markdown-Resume plus Report. Optional kann Codex DOCX/PDF-Exporte erzeugen, wenn lokale Export-Werkzeuge verfuegbar sind.
+Lokaler Codex-Skill fuer faktengetreue, zielgerichtete Bewerbungsunterlagen in der Struktur `Bewerbungsunterlagen_2026`. Der Skill analysiert `stationen/` und `wissen/`, wertet Jobbeschreibungen aus, findet belegbare passende Erfahrungen, fuehrt bei Bedarf Erfahrungs-Discovery durch und erzeugt einen zugeschnittenen Markdown-Lebenslauf, eine separate Projektliste und einen Qualitaetsreport in `output/`.
 
 ## Ziel
 
-Deine Chancen sollen von echter Erfahrung und Faehigkeit abhaengen, nicht davon, wie gut du Resume-Texte von Hand optimierst.
+Deine Chancen sollen von echter Erfahrung und Faehigkeit abhaengen, nicht davon, wie gut du Lebenslauf-Texte von Hand optimierst.
 
 Der Skill macht:
-- lokale Resume-Bibliothek aus Markdown-Dateien analysieren,
+- Stationen und Wissensdateien aus deiner Bewerbungsstruktur analysieren,
 - Jobbeschreibung in Anforderungen, Keywords, Risiken und narrative Themes zerlegen,
 - echte, aber noch nicht dokumentierte Erfahrung durch Fragen sichtbar machen,
 - Bullet Points transparent matchen und scoren,
 - Wahrheitsschutz bei jedem Reframing erzwingen,
-- Markdown-Resume und Markdown-Report erzeugen,
+- verpflichtendes 3-Ebenen-Review fuer ATS, HR und Fachbereich vor der finalen Ausgabe durchfuehren,
+- Markdown-Lebenslauf, separate Markdown-Projektliste und Markdown-Report unter `output/` erzeugen,
+- 2 bis 4 kurze Schluesselprojekt-Teaser im Lebenslauf platzieren und in der Projektliste fachlich vertiefen,
+- Pflegevorschlaege fuer `stationen/`, `wissen/`, `TASKS.md` oder `wissen/arbeitsstand.md` nur nach Freigabe schreiben,
 - optionale DOCX/PDF-Exporte ohne Claude-spezifische Dokument-Plugins versuchen, wenn der Nutzer sie verlangt.
 
 Der Skill garantiert nicht ohne lokale Werkzeuge:
 - DOCX-Erzeugung,
 - PDF-Erzeugung,
 - Cover Letters,
-- LinkedIn-Profiloptimierung,
-- Claude Marketplace Distribution.
+- LinkedIn-Profiloptimierung.
 
 ## Installation
 
@@ -40,45 +42,65 @@ ln -s "$(pwd)/skills/resume-tailoring" ~/.codex/skills/resume-tailoring
 
 Danach Codex neu starten, falls die Skill-Liste bereits geladen war.
 
-## Voraussetzungen
+## Erwartete Arbeitsstruktur
 
-Erforderlich:
-- Codex mit Skill-Unterstuetzung.
-- Mindestens ein vorhandenes Resume als Markdown-Datei.
-
-Empfohlen:
-- mehrere bestehende Resumes fuer bessere Match-Auswahl,
-- eine lokale Struktur wie `./resumes/`,
-- Webzugriff nur dann, wenn Firmen- oder Rollenrecherche benoetigt wird.
-
-Beispiel:
+Der Skill arbeitet standardmaessig mit einer Projektwurzel dieser Form:
 
 ```text
-resumes/
-├── Resume_General_2024.md
-├── Resume_Product_Manager.md
-└── Resume_Technical_Program_Manager.md
+Bewerbungsunterlagen_2026/
+├── AGENTS.md
+├── TASKS.md
+├── quellen/
+│   ├── rohdaten.pdf
+│   ├── zeugnis-firma-a.pdf
+│   └── zeugnis-firma-b.pdf
+├── stationen/
+│   ├── _vorlage.md
+│   ├── 01_HeaTec_Versuchsmechaniker.md
+│   ├── 02_HeaTec_Konstrukteur.md
+│   └── 05_Akkodis_Daimler-Nissan.md
+├── output/
+│   ├── _vorlage_lebenslauf.md
+│   ├── _vorlage_whoz.md
+│   └── Name_Stelle_Jahr.md
+└── wissen/
+    ├── schema.md
+    ├── glossar.md
+    ├── arbeitsstand.md
+    ├── profil.md
+    └── karriere/
+        ├── _uebersicht.md
+        └── kompetenzen.md
 ```
+
+Wichtige Regeln:
+- `stationen/*.md` sind konkrete Erfahrungsquellen; `stationen/_vorlage.md` ist nur Vorlage.
+- `wissen/profil.md` ist die autoritative Quelle fuer Berufsprofil und USP.
+- `wissen/glossar.md` klaert Abkuerzungen, Firmenkuerzel und Projektnamen.
+- `wissen/karriere/_uebersicht.md` und `wissen/karriere/kompetenzen.md` sind aggregierte, pflegbare Wissensdateien.
+- `output/_vorlage_lebenslauf.md` ist die primaere Zielstruktur fuer neue Lebenslaeufe.
+- `output/_vorlage_whoz.md` wird nur bei ausdruecklichem WHOZ-Wunsch genutzt.
+- `quellen/` enthaelt Rohmaterial und wird nie veraendert.
 
 ## Nutzung
 
 Single-Job:
 
 ```text
-Use $resume-tailoring to tailor my resume for this role.
-Resume library: ./resumes
-Job description:
+Nutze $resume-tailoring, um meinen Lebenslauf fuer diese Rolle zuzuschneiden.
+Projektwurzel: ./Bewerbungsunterlagen_2026
+Jobbeschreibung:
 {paste JD}
 ```
 
 Mehrere Jobs:
 
 ```text
-Use $resume-tailoring for these 3 roles:
-1. Company A - Role A: {JD or URL}
-2. Company B - Role B: {JD or URL}
-3. Company C - Role C: {JD or URL}
-Resume library: ./resumes
+Nutze $resume-tailoring fuer diese 3 Rollen:
+1. Firma A - Rolle A: {JD oder URL}
+2. Firma B - Rolle B: {JD oder URL}
+3. Firma C - Rolle C: {JD oder URL}
+Projektwurzel: ./Bewerbungsunterlagen_2026
 ```
 
 Der Skill erkennt Batch-Modus, wenn mehrere Jobbeschreibungen, URLs, Firmen oder Rollen genannt werden.
@@ -88,10 +110,12 @@ Der Skill erkennt Batch-Modus, wenn mehrere Jobbeschreibungen, URLs, Firmen oder
 Single-Job:
 
 ```text
-{Name}_{Company}_{Role}_Resume.md
-{Name}_{Company}_{Role}_Resume_Report.md
-optional: {Name}_{Company}_{Role}_Resume.docx
-optional: {Name}_{Company}_{Role}_Resume.pdf
+output/{Name}_{Stelle}_{Jahr}.md
+output/{Name}_{Stelle}_{Jahr}_Projektliste.md
+output/{Name}_{Stelle}_{Jahr}_Report.md
+optional: output/{Name}_{Stelle}_{Jahr}.docx
+optional: output/{Name}_{Stelle}_{Jahr}.pdf
+optional bei WHOZ-Wunsch: WHOZ-Export anhand output/_vorlage_whoz.md
 ```
 
 Die Platzhalter in Dateinamen sind normalisierte Pfadsegmente. Anzeigenamen im Dokument bleiben unveraendert; verbotene Dateizeichen werden ersetzt, lange Segmente gekuerzt und Kollisionen mit `-2`, `-3` usw. geloest.
@@ -99,7 +123,7 @@ Die Platzhalter in Dateinamen sind normalisierte Pfadsegmente. Anzeigenamen im D
 Batch:
 
 ```text
-resumes/batches/batch-{YYYY-MM-DD}-{slug}/
+output/batches/batch-{YYYY-MM-DD}-{slug}/
 ├── _batch_state.json
 ├── _aggregate_gaps.md
 ├── _discovered_experiences.md
@@ -107,21 +131,29 @@ resumes/batches/batch-{YYYY-MM-DD}-{slug}/
 ├── job-1-{company}/
 │   ├── success_profile.md
 │   ├── content_mapping.md
-│   ├── {Name}_{Company}_{Role}_Resume.md
-│   └── {Name}_{Company}_{Role}_Resume_Report.md
+│   ├── {Name}_{Stelle}_{Jahr}.md
+│   ├── {Name}_{Stelle}_{Jahr}_Projektliste.md
+│   └── {Name}_{Stelle}_{Jahr}_Report.md
 └── job-2-{company}/
     └── ...
 ```
 
+Der Lebenslauf bleibt schlank und ATS-/Recruiter-freundlich. Er enthaelt nur 2 bis 4 kurze Projekt-Teaser, z. B. `Projekt: Einfuehrung SAP S/4HANA, siehe Projektliste`.
+
+Die Projektliste ist ein eigenes Bewerbungsdokument. Sie traegt die fachliche Tiefe und beschreibt relevante Projekte mit Kontext, Aufgabe/Rolle, Methode/Technologie, Ergebnis/Wirkung und Relevanz fuer die Zielrolle.
+
 Der Report dokumentiert:
-- Zielrolle und Success Profile,
-- Coverage Summary,
-- Content Mapping,
+- Zielrolle und Erfolgsprofil,
+- Abdeckungsuebersicht,
+- Inhaltszuordnung,
+- Projekt-Teaser und Projektlisten-Auswahl,
 - Reframings mit Wahrheitsbegruendung,
-- verwendete Quellresumes,
+- Qualitaetsreport mit ATS-Abdeckung, HR-Lesbarkeit, fachlicher Substanz, Risiken und Gate-Status,
+- verwendete Quellen aus `stationen/` und `wissen/`,
 - neu entdeckte Erfahrungen,
 - verbleibende Gaps,
-- Interview-Prep-Hinweise.
+- Interview-Prep-Hinweise,
+- optionale Pflegevorschlaege.
 
 ## Skill-Struktur
 
@@ -134,6 +166,7 @@ skills/resume-tailoring/
     ├── discovery.md
     ├── matching.md
     ├── multi-job-workflow.md
+    ├── quality-review.md
     ├── research.md
     ├── schemas.md
     └── single-job-workflow.md
@@ -141,16 +174,18 @@ skills/resume-tailoring/
 
 `SKILL.md` bleibt bewusst schlank. Detailregeln werden je nach Phase aus `references/` geladen.
 
-## Workflow
+## Arbeitsablauf
 
-1. Intake: Jobbeschreibung, Firma/Rolle und Resume-Bibliothek klaeren.
-2. Bibliothek: lokale Markdown-Resumes lesen und Erfahrung indexieren.
-3. Research: JD und optional Firmen-/Rolleninformationen auswerten.
-4. Template: Struktur, Rolle, Skills und Bullet-Budget planen.
+1. Intake: Jobbeschreibung, Firma/Rolle und Projektwurzel klaeren.
+2. Karrierebasis: `stationen/` und relevante Dateien aus `wissen/` lesen.
+3. Recherche: JD und optional Firmen-/Rolleninformationen auswerten.
+4. Vorlage: `output/_vorlage_lebenslauf.md` verwenden oder konservativen Fallback nutzen.
 5. Discovery: gezielt nach undokumentierter echter Erfahrung fragen.
 6. Matching: Kandidaten scoren, Gaps offenlegen, Reframings dokumentieren.
-7. Output: Markdown-Resume und Markdown-Report erzeugen; optionale DOCX/PDF-Exporte nur bei verfuegbaren lokalen Werkzeugen.
-8. Library Update: nur nach expliziter Nutzerfreigabe uebernehmen.
+7. Rohdokumente: Lebenslauf mit 2 bis 4 Projekt-Teasern, separate Projektliste und Report entwerfen.
+8. 3-Ebenen-Review: ATS, HR und Fachbereich pruefen, belegbare Schwaechen nachschaerfen und verbleibende Luecken dokumentieren.
+9. Ausgabe: Markdown-Lebenslauf, Markdown-Projektliste und Markdown-Report in `output/` erzeugen; optionale DOCX/PDF-Exporte nur bei verfuegbaren lokalen Werkzeugen.
+10. Strukturpflege: Updates fuer `stationen/`, `wissen/`, `wissen/arbeitsstand.md` oder `TASKS.md` nur nach expliziter Nutzerfreigabe schreiben.
 
 ## Designregeln
 
@@ -160,35 +195,36 @@ skills/resume-tailoring/
 - Schwache Matches werden als schwach markiert.
 - Gaps duerfen bestehen bleiben.
 - Reframing muss belegbar und im Report nachvollziehbar sein.
+- Projektliste ist Standard, kein optionaler Zusatz.
+- Lebenslauf bleibt schlank; Projekt-Tiefe gehoert in die separate Projektliste.
+- CV-Teaser duerfen nur auf Projekte verweisen, die in der Projektliste belegt sind.
+- Finale Ausgabe erfordert das 3-Ebenen-Review oder einen transparenten Gate-Status.
+- `quellen/` bleibt unveraendert.
 
 ## Fallbacks
 
 - Keine Webrecherche: JD-only Analyse plus optionale Rueckfrage.
-- Kleine Bibliothek: Warnung, Discovery priorisieren.
-- Schwache Matches: Gap-Liste statt erzwungener Bullet Points.
+- Kleine Karrierebasis: Warnung, Discovery priorisieren.
+- Fehlende `output/_vorlage_lebenslauf.md`: konservativen Markdown-Lebenslauf erzeugen und im Report nennen.
+- Schwache Matches: Gap-Liste statt erzwungener Bullet Points; keine Keywords ohne Evidenz in den Lebenslauf schreiben.
 - DOCX/PDF-Wunsch: erst lokale Exportwege pruefen, z. B. vorhandene Repo-Skripte, `pandoc`, `textutil` oder `libreoffice`; wenn nichts verfuegbar ist, Markdown liefern und den fehlenden Exportweg nennen.
 
-## Legacy-Dateien
+## Repository-Scope
 
-Einige Root-Dokumente stammen aus der frueheren Claude-/Marketplace-Fassung und bleiben als Historie oder Designmaterial erhalten:
-- `MARKETPLACE.md`
-- `SUBMISSION_GUIDE.md`
-- `.claude-plugin/plugin.json`
-- alte Multi-Job-Planungsdokumente unter `docs/`
-
-Fuer die lokale Codex-Runtime ist nur `skills/resume-tailoring/` massgeblich. Die Legacy-Dateien sind archiviert, werden von Codex nicht geladen und duerfen keine Runtime-Zusagen fuer den Codex-Skill uebersteuern.
+Fuer die lokale Codex-Runtime ist `skills/resume-tailoring/` massgeblich. Historisches Claude-/Marketplace-Material wurde aus dem Repository entfernt; relevante Designregeln sind in `SKILL.md` und den Dateien unter `skills/resume-tailoring/references/` konsolidiert.
 
 ## Manuelle Pruefung
 
 ```bash
-rg "WebSearch|WebFetch|document-skills|~/.claude|Claude Code" skills/resume-tailoring
+rg "stationen|wissen|output/batches|_vorlage_lebenslauf|Projektliste|Qualitaetsreport|3-Ebenen" skills/resume-tailoring README.md
 find skills/resume-tailoring/references -type f | sort
 ```
 
 Erwartung:
-- keine verbindlichen Claude-spezifischen Runtime-Abhaengigkeiten im Skill-Ordner,
+- keine alten Standardpfade oder alten Quellenbegriffe bei einer separaten Negativsuche,
+- neue Strukturbegriffe sind in Skill und README dokumentiert,
 - alle in `SKILL.md` referenzierten Dateien existieren.
 
 ## Lizenz
 
-MIT License. Siehe `LICENSE`.
+MIT-Lizenz. Siehe `LICENSE`.

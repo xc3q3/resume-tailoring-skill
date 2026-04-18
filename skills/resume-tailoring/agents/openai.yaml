@@ -1,7 +1,7 @@
 interface:
-  display_name: "Resume Tailoring"
-  short_description: "Truthful tailored resumes from Markdown"
-  default_prompt: "Use $resume-tailoring to tailor a Markdown resume and report for this job description using my local resume library."
+  display_name: "Lebenslauf-Tailoring"
+  short_description: "Lebenslauf, Projektliste und Qualitaetsreport aus stationen/ und wissen/"
+  default_prompt: "Nutze $resume-tailoring, um fuer diese Jobbeschreibung einen Markdown-Lebenslauf, eine separate Projektliste und einen Qualitaetsreport aus meiner Bewerbungsunterlagen_2026-Struktur mit stationen/, wissen/ und output/ zu erstellen."
 
 policy:
   allow_implicit_invocation: true

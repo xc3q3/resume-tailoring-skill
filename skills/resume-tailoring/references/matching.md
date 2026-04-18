@@ -1,4 +1,4 @@
-# Matching and Reframing
+# Matching und Reframing
 
 ## Ziel
 
@@ -6,13 +6,20 @@ Vorhandene Erfahrungen transparent auf Jobanforderungen abbilden. Das Matching s
 
 ## Scoring
 
-Alle Teilwerte auf einer 0-100-Skala bewerten. Nur belegte Informationen aus Resume-Bibliothek, Discovery, JD oder Nutzerkontext zaehlen; fehlende Evidenz ist `0`.
+Alle Teilwerte auf einer 0-100-Skala bewerten. Nur belegte Informationen aus `stationen/`, `wissen/`, Discovery, JD oder Nutzerkontext zaehlen; fehlende Evidenz ist `0`.
+
+Autoritative Quellen:
+- `wissen/profil.md` fuer Berufsprofil, USP und Selbstdarstellung.
+- `wissen/glossar.md` fuer Abkuerzungen, Firmenkuerzel und Projektnamen.
+- `wissen/karriere/_uebersicht.md` fuer Timeline und Stationenfolge.
+- `wissen/karriere/kompetenzen.md` fuer konsolidierte Kompetenzen.
+- `stationen/*.md` fuer konkrete Arbeitgeber-, Rollen-, Projekt- und Erfahrungsbelege.
 
 Teilwert-Rubrik:
 - `100`: gleiche Anforderung, gleicher Kontext oder gleichwertige Wirkung.
 - `75`: starke Uebereinstimmung mit kleinem Domain-, Tool- oder Kontextwechsel.
 - `50`: teilweise Uebereinstimmung; relevante Faehigkeit ist erkennbar, aber nicht deckungsgleich.
-- `25`: schwache Andeutung; nur als Hinweis, nicht als tragender Resume-Bullet.
+- `25`: schwache Andeutung; nur als Hinweis, nicht als tragender Lebenslauf-Bullet.
 - `0`: keine belastbare Evidenz.
 
 Gesamtscore:
@@ -37,23 +44,44 @@ Confidence-Bands:
 
 ## Mapping-Ausgabe
 
-Pro Template-Slot:
+Pro Vorlagen-Slot:
 ```markdown
-### Slot: {Requirement or bullet intent}
+### Slot: {Anforderung oder Bullet-Ziel}
 
-**Recommendation:** {source bullet or discovery}
+**Empfehlung:** {Quell-Bullet oder Discovery}
 **Confidence:** {score} ({band})
-**Source:** {resume file or discovery id}
+**Quelle:** {stationen/... oder wissen/... oder Discovery-ID}
 
-Why it fits:
+Warum es passt:
 - Direct:
 - Transferable:
 - Adjacent:
 - Impact:
 
-Gaps:
-- {missing element if any}
+Luecken:
+- {fehlendes Element, falls vorhanden}
 ```
+
+## Projektliste und CV-Teaser
+
+Matching liefert auch die Evidenzbasis fuer Projektliste und ATS-Keywords.
+
+Projektliste:
+- Nur Projekte aufnehmen, die aus `stationen/`, `wissen/`, Discovery oder Nutzerkontext belegbar sind.
+- Pro wichtigem Projekt Kontext, Aufgabe/Rolle, Methode/Technologie und Ergebnis/Wirkung erfassen.
+- Wenn Ergebnis oder Wirkung nicht belegt ist, beobachtbare Wirkung vorsichtig formulieren oder als fehlenden Nachweis markieren.
+- Projektliste darf fachlich tiefer sein als der Lebenslauf, aber keine neuen unbelegten Fakten einfuehren.
+
+CV-Teaser:
+- 2 bis 4 Schluesselprojekte aus der Projektliste auswaehlen.
+- Teaser muessen zur Zielrolle passen und duerfen ATS-relevante Begriffe nur natuerlich verwenden.
+- Kein Teaser ohne vollstaendige Projektlisten-Ausarbeitung.
+- Teaser sind keine Ersatzbelege; der Beleg liegt in Projektliste und Report.
+
+ATS-Keyword-Behandlung:
+- `DIRECT` und `TRANSFERABLE` koennen im CV genutzt werden, wenn die Formulierung wahr bleibt.
+- `ADJACENT` eher in Projektliste oder Report erklaeren, nicht als hartes Muss-Keyword im CV ausgeben.
+- `WEAK` und `GAP` nicht durch Keyword-Stuffing verstecken.
 
 ## Reframing-Regeln
 
@@ -85,7 +113,7 @@ Wenn Score unter 60 liegt:
 - Optionen geben:
   - Slot weglassen.
   - Bestes schwaches Match mit vorsichtiger Formulierung nutzen.
-  - Gap im Report oder Interview Prep adressieren.
+  - Gap im Report oder in der Interviewvorbereitung adressieren.
   - Nutzer nach belegbarer Erfahrung fragen.
 
 ## Wiederholungen vermeiden
@@ -93,4 +121,4 @@ Wenn Score unter 60 liegt:
 Wenn ein Bullet mehrere Anforderungen abdeckt:
 - fuer den wichtigsten Slot verwenden,
 - bei weiteren Slots als sekundare Abdeckung im Report nennen,
-- nicht denselben Erfolg mehrfach im Resume wiederholen.
+- nicht denselben Erfolg mehrfach im Lebenslauf wiederholen.

@@ -1,4 +1,4 @@
-# Experience Discovery
+# Erfahrungs-Discovery
 
 ## Ziel
 
@@ -8,7 +8,7 @@ Echte, aber bisher undokumentierte Erfahrung sichtbar machen. Discovery ist ein 
 
 Nutzen, wenn:
 - kritische Anforderungen schwach gematcht sind,
-- aktuelle Arbeit nicht in der Bibliothek steht,
+- aktuelle Arbeit nicht in `stationen/` oder `wissen/` steht,
 - der Nutzer Karrierewechsel, Gap oder Nebenprojekte erwaehnt,
 - Batch-Modus gemeinsame Gaps zeigt.
 
@@ -53,21 +53,21 @@ Follow-ups:
 - Welche Entscheidung oder welches Ergebnis hast du beeinflusst?
 - Welche messbare oder beobachtbare Wirkung gab es?
 
-## Recent Work Probe
+## Probe fuer aktuelle Arbeit
 
 ```text
-Was hast du in den letzten 6 Monaten gemacht, das noch in keinem Resume steht?
+Was hast du in den letzten 6 Monaten gemacht, das noch in keinem Lebenslauf steht?
 ```
 
 Nachfassen:
 - Projekte einzeln durchgehen.
 - Kleine Verbesserungen, Mentoring, Prozessarbeit und Nebenprojekte nicht vorschnell abtun.
-- Immer pruefen, ob genug Substanz fuer ein Resume-Bullet vorhanden ist.
+- Immer pruefen, ob genug Substanz fuer ein Lebenslauf-Bullet vorhanden ist.
 
 ## Capture-Format
 
 ```markdown
-## Newly Discovered Experiences
+## Neu entdeckte Erfahrungen
 
 ### {experience_id}: {short name}
 - Context:
@@ -81,9 +81,16 @@ Nachfassen:
 - Include now: yes/no/needs review
 ```
 
+## Nachpflege
+
+Wenn Discovery belastbare neue Erfahrung ergibt:
+- Im Report als Discovery-ID dokumentieren.
+- Einen Pflegevorschlag fuer `stationen/` oder `wissen/karriere/*` formulieren.
+- Erst nach expliziter Zustimmung schreiben.
+- `quellen/` nie veraendern.
+
 ## Wahrheitsschutz
 
 - Discovery hilft beim Erinnern und Formulieren, nicht beim Erfinden.
 - Unsichere Angaben als unsicher markieren.
 - Wenn der Nutzer keine belastbare Erfahrung nennt, bleibt der Gap bestehen.
-

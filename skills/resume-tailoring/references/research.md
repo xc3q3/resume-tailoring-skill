@@ -1,25 +1,35 @@
-# Research Guidance
+# Recherche-Leitfaden
 
-## JD Parsing
+## JD-Analyse
 
 Extrahiere strukturiert:
 - Explizite Must-have Anforderungen.
 - Nice-to-have Anforderungen.
-- Technische Keywords und Domainbegriffe.
+- Muss-Keywords: Rollenbegriffe, Methoden, Tools, Normen, Technologien und Domainbegriffe, die in der JD als zwingend wirken.
+- Optionale Keywords: wuenschenswerte Tools, Methoden, Branchenkenntnisse, Soft-Skill-Signale und nice-to-have Domains.
+- Synonyme DE/EN: fachlich gleichwertige Begriffe aus JD, Karrierebasis und Glossar.
 - Implizite Praeferenzen, etwa Ownership, Ambiguity, Tempo, Stakeholder, Regulierung.
 - Red Flags, etwa fehlende Domain, Senioritaetsmismatch oder Tool-Luecken.
 - Rollen-Archetyp.
 
-Output:
-```markdown
-## JD Analysis
+Keyword-Regeln:
+- Keywords nicht nur zaehlen, sondern gegen belegbare Erfahrung pruefen.
+- Synonyme als Abdeckung werten, wenn die zugrunde liegende Erfahrung gleichwertig ist.
+- Keine Keyword-Liste erzeugen, die spaeter zu Stuffing verleitet.
+- Unbelegte Muss-Keywords als Gap markieren, nicht in den Lebenslauf schreiben.
 
-### Must-Haves
-### Nice-to-Haves
-### Keywords
-### Implicit Signals
-### Risks
-### Role Archetype
+Ausgabe:
+```markdown
+## JD-Analyse
+
+### Muss-Anforderungen
+### Kann-Anforderungen
+### Muss-Keywords
+### Optionale Keywords
+### Synonyme DE/EN
+### Implizite Signale
+### Risiken
+### Rollen-Archetyp
 ```
 
 ## Firmenrecherche
@@ -30,7 +40,7 @@ Nutze Webrecherche nur, wenn sie verfuegbar und noetig ist. Geeignete Suchrichtu
 - `{company} recent news product launch`
 - `{company} careers {role family}`
 
-Nicht uebertreiben: Fuer ein Resume reicht ein pragmatisches Success Profile. Keine langen Firmenportraits.
+Nicht uebertreiben: Fuer einen Lebenslauf reicht ein pragmatisches Erfolgsprofil. Keine langen Firmenportraits.
 
 Provenienzpflicht:
 - Jede externe Aussage mit Quelle, URL oder Seitentitel und Abrufdatum der Session markieren.
@@ -50,29 +60,37 @@ Wenn nichts Solides verfuegbar ist:
 - JD-only arbeiten,
 - den Nutzer optional nach Insider-Kontext fragen.
 
-## Success Profile
+## Erfolgsprofil
+
+Nutze `wissen/profil.md` fuer die eigene USP-/Profilformulierung und `wissen/glossar.md` fuer konsistente Bezeichnungen. Job- oder Firmenaussagen muessen trotzdem aus JD, Recherche oder Nutzerkontext stammen.
 
 Erzeuge:
 ```markdown
-## Success Profile: {Role} at {Company}
+## Erfolgsprofil: {Role} bei {Company}
 
-### Core Requirements
-- {Requirement}: {Evidence, Source}
+### Kernanforderungen
+- {Anforderung}: {Evidenz, Quelle}
 
-### Valued Capabilities
-- {Capability}: {Why it matters, Source}
+### Geschaetzte Faehigkeiten
+- {Faehigkeit}: {Warum sie wichtig ist, Quelle}
 
-### Narrative Themes
-- {Theme}: {How the resume should show it, Source}
+### Narrative Themen
+- {Thema}: {Wie der Lebenslauf es zeigen sollte, Quelle}
 
-### Terminology Map
-- User/source wording -> target wording
+### Terminologie-Zuordnung
+- Nutzer-/Quellformulierung -> Zielformulierung
 
-### Risks and Mitigations
-- {Risk}: {Truthful mitigation}
+### ATS-Keyword-Profil
+- Muss-Keywords:
+- Optionale Keywords:
+- Synonyme DE/EN:
+- Kritische Luecken:
+
+### Risiken und Gegenmassnahmen
+- {Risiko}: {Faktengetreue Entschaerfung}
 
 ### Sources
-- {Source label}: {JD, URL/title, or User context}; accessed {date if external}
+- {Quellenlabel}: {JD, URL/Titel oder Nutzerkontext}; abgerufen {Datum, falls extern}
 ```
 
 ## Qualitaetsregeln
